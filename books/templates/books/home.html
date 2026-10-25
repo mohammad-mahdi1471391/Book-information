@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Home</title>
+    <style>
+        body{
+            background-color: white;
+            margin: 0;
+            padding: 0;
+        }
+
+        .search-background {
+            background-color: #304b70;
+            width: 100%;
+            height: 130px;
+            margin: 0 ;
+        }
+
+
+
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 0.2fr);
+        }
+
+        .search {
+            display: flex;
+            justify-content:end;
+            align-items: end;
+            margin-top: -68px;
+            margin-right: 80px;
+        }
+
+
+        .genres {
+            font-family: 'Bauhaus 93';
+            display: flex;
+            flex-wrap: nowrap;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 25px;
+            background-color: #f4f6f9;
+            overflow-x: auto;
+            overflow-y: hidden;
+            white-space: nowrap;
+            scrollbar-width: none;
+        }
+
+        .genre-link {
+            display: inline-block;
+            padding: 10px 16px;
+            color: #304b70;
+            text-decoration: none;
+            font-size: 17px;
+            border-radius: 8px;
+            transition: 0.25s ;
+        }
+
+        .genre-link:hover {
+            background-color: #304b70;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .button {
+            border-radius: 3px ;
+            background-color: cadetblue ;
+            width: 90px ;
+            height: 40px;
+            white-space: nowrap;
+            font-family: 'Bauhaus 93';
+            margin-right: 10px ;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-left: 93.8%;
+            margin-top: -75px;
+            transition: 0.25s;
+        }
+        .button:hover {
+            background-color: #34ff00;
+            color: black;
+            transform: translateY(-2px);
+        }
+
+
+        .grid2 {
+            display: grid;
+            grid-template-columns: repeat(2, 0.8fr);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+
+         .card {
+             width: 250px;
+             height: 340px;
+             background-color: #c8d7d2;
+             border-radius: 10px;
+             transition: 0.25s ;
+             padding: 5px;
+         }
+
+        .card_situation {
+            display: flex ;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            overflow-x: auto;
+            overflow-y: hidden;
+            scrollbar-width: none;
+            gap: 25px;
+            padding: 30px;
+            margin-top: 70px;
+
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+
+
+        .img_set {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+        }
+
+
+    </style>
+
+
+
+</head>
+
+<body>
+
+<div class="search-background">
+    <img src="{% static 'D:\Django_Projects\Books_information\static\picture\logo.png' %}" alt="logo" width="300" height="100">
+    <div class="search">
+        <form method="GET" action="{% url 'search_books' %}" onsubmit="return this.q.value.trim() !== ''">
+            <div class="grid">
+                <input
+                        style="width: 500px; height: 50px; border-radius: 10px; font-family: 'Bauhaus 93'; font-size: 18px;"
+                        type="search"
+                        name="q"
+                        placeholder="Search Books, Author,Keyword "
+                        value="{{ request.GET.q|default:'' }}"
+                    >
+                <button type="submit" style="border-radius: 10px ; background-color: #1778FF"><img src="{% static 'picture/search-icon.png' %}" width= 30px height= 30px></button>
+            </div>
+        </form>
+    </div>
+    {% if not user.is_authenticated %}
+        <div class="button">
+            <a href="{% url 'users-login' %}" style="text-decoration: none; color: black;">
+                <div class="grid2">
+                    <img src="{% static 'picture/profile.png' %}" width= 30px height= 30px>
+                    Sign in
+                </div>
+            </a>
+        </div>
+    {% else %}
+        <div class="button">
+            <a href="{% url 'add book' %}" style="text-decoration: none; color: black;">
+                Add Book
+            </a>
+        </div>
+    {%endif%}
+</div>
+
+<div class="genres">
+    {% for genre in categories %}
+        <a href="{% url 'books list' category=genre.name %}" class="genre-link">
+            {{ genre.name }}
+        </a>
+    {% endfor %}
+</div>
+
+
+<h1 style="font-family: 'Bauhaus 93' ; margin-top: 70px ; margin-left: 10px">Suggestions for you :</h1>
+<div class="card_situation">
+    {% for book in books %}
+            <a href="{% url 'book detail' category=book.category_name name=book.name %}" style="text-decoration: none; color: black;">
+                <div class="card">
+                    <div class="img_set">
+                        <img src="{{book.img}}" alt="AVATAR" width="150" height="200" style="border-radius: 10px;justify-content: center;">
+                    </div>
+                    <h4>Genre : {{book.category_name}}</h4>
+                    <p><i>{{ book.name }}</i></p>
+                </div>
+            </a>
+    {% endfor %}
+</div>
+
+
+
+
+
+
+
+</body>
+</html>
+
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{book.name}}</title>
+
+
+    <style>
+        body {
+            background-color: beige ;
+            margin: 0;
+        }
+        .text-box {
+              padding: 15px;
+              width: 1470px;
+              font-size: 30px;
+        }
+
+
+         .image-container {
+             display: flex;
+             justify-content: start;
+             padding: 15px;
+             align-items: start;
+             margin-top: 20px;
+             margin-left: 20px;
+        }
+
+
+         .grid {
+             display: grid;
+             grid-template-columns: repeat(2, 0.47fr);
+         }
+
+
+
+
+         .card {
+             width: 230px;
+             height: 290px;
+             background-color: #c8d7d2;
+             border-radius: 10px;
+             transition: 0.25s ;
+         }
+
+        .card_situation {
+            display: flex ;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            overflow-y: hidden;
+            scrollbar-width: none;
+            gap: 10px;
+            padding: 30px;
+
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+
+
+        .img_set {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+        }
+
+        .background {
+            background-color: cadetblue;
+            width: 99%;
+            height: 450px;
+            margin: 10px;
+            border-radius: 15px;
+        }
+
+
+
+
+    </style>
+</head>
+<body>
+
+<div class="background">
+    <div class="grid">
+        <div class="image-container">
+            <img src="{{book.img}}" alt="AVATAR" width="350" height="400" style="border-radius: 10px;">
+        </div>
+        <h1 style="font-family: 'Rockwell Nova Light' ; white-space: nowrap;margin-top: 120px">
+            Book name : <b>{{book.name}}</b><br>
+            <br>
+            Author : <b>{{book.author}}</b><br>
+            <br>
+            Written : <b>{{book.created}}</b><br>
+        </h1>
+    </div>
+</div>
+    <div class="text-box">
+        <h3 style="font-family: 'Bauhaus 93'">Overview :</h3> <br><b>{{book.text}}</b>
+    </div>
+<br><br>
+
+<p style="text-align: center">-------------------------------------------------------------------------------------------------------------------------------------------</p>
+<h1 style="font-family: 'Bauhaus 93';text-align: center">You May Also Like</h1>
+<div class="card_situation">
+    {% for book2 in book2 %}
+        <a href="{% url 'book detail' category=book2.category_name name=book2.name %}" style="text-decoration: none; color: black;">
+            <div class="card">
+                <div class="img_set">
+                    <img src="{{book2.img}}" alt="AVATAR" width="150" height="200" style="border-radius: 10px;justify-content: center;">
+                </div>
+                <p style="text-align: center">{{ book2.name }}</p>
+            </div>
+        </a>
+    {% endfor %}
+</div>
+
+
+
+
+</body>
+</html>

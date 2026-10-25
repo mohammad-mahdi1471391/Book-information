@@ -1,0 +1,58 @@
+
+{% extends "users/base.html" %}
+
+{% block title %}Register Page{% endblock title %}
+
+{% block content %}
+
+<div style="margin: 40px auto;
+            max-width: 500px;
+            padding: 25px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: white;">
+
+    <h2 style="text-align: center; margin-bottom: 25px;">
+        Create Account
+    </h2>
+
+    {% if form.errors %}
+        <div style="background-color: #ffdddd;
+                    color: #a00000;
+                    padding: 10px;
+                    margin-bottom: 15px;
+                    border-radius: 5px;">
+
+            {% for key, value in form.errors.items %}
+                <p>{{ value }}</p>
+            {% endfor %}
+
+        </div>
+    {% endif %}
+
+    <form method="POST">
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        <button type="submit"
+                style="width: 100%;
+                       padding: 10px;
+                       background-color: #333;
+                       color: white;
+                       border: none;
+                       border-radius: 5px;
+                       cursor: pointer;">
+            Sign Up
+        </button>
+    </form>
+
+    <div style="text-align: center; margin-top: 20px;">
+        <a href="{% url 'users-login' %}">
+            Have an account? Sign In
+        </a>
+    </div>
+
+</div>
+
+{% endblock content %}
