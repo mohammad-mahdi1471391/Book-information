@@ -135,6 +135,19 @@
             padding: 10px;
         }
 
+        .messages {
+            display: flex;
+            justify-content: start;
+            align-items: start;
+            background-color: mediumseagreen;
+            width: 97.36%;
+            height: 50px;
+            margin: 0;
+            font-family: 'Bauhaus 93';
+            font-size: 20px;
+            text-align: start;
+        }
+
 
     </style>
 
@@ -143,9 +156,15 @@
 </head>
 
 <body>
-
+{% if messages%}
+    {% for message in messages %}
+        <ul class="messages">
+            <i style="margin-top: 10px">{{ message }}</i>
+        </ul>
+    {% endfor%}
+{%endif%}
 <div class="search-background">
-    <img src="{% static 'D:\Django_Projects\Books_information\static\picture\logo.png' %}" alt="logo" width="300" height="100">
+    <img src="{% static 'picture\logo.png' %}" alt="logo" width="300" height="100">
     <div class="search">
         <form method="GET" action="{% url 'search_books' %}" onsubmit="return this.q.value.trim() !== ''">
             <div class="grid">
@@ -161,20 +180,23 @@
         </form>
     </div>
     {% if not user.is_authenticated %}
-        <div class="button">
-            <a href="{% url 'users-login' %}" style="text-decoration: none; color: black;">
+        <a href="{% url 'users-login' %}" style="text-decoration: none; color: black;">
+            <div class="button">
                 <div class="grid2">
                     <img src="{% static 'picture/profile.png' %}" width= 30px height= 30px>
                     Sign in
                 </div>
-            </a>
-        </div>
+            </div>
+        </a>
+
     {% else %}
-        <div class="button">
-            <a href="{% url 'add book' %}" style="text-decoration: none; color: black;">
-                Add Book
-            </a>
-        </div>
+        <a href="{% url 'add book' %}" style="text-decoration: none; color: black;">
+            <div class="button">
+                    Add Book
+            </div>
+        </a>
+
+
     {%endif%}
 </div>
 
@@ -185,7 +207,6 @@
         </a>
     {% endfor %}
 </div>
-
 
 <h1 style="font-family: 'Bauhaus 93' ; margin-top: 70px ; margin-left: 10px">Suggestions for you :</h1>
 <div class="card_situation">

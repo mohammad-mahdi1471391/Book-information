@@ -172,14 +172,13 @@
             {% csrf_token %}
 
             {{ form.as_p }}
-
-            <button type="submit" class="submit-btn">
-                Save Book
-            </button>
+                <button type="submit" class="submit-btn">
+                    Save Book
+                </button>
 
         </form>
 
-        <a href="{% url 'home' %}" class="back-link">
+        <a href="{% url 'home'%}" class="back-link">
             ← Back to Home
         </a>
 

@@ -90,7 +90,7 @@ def addBook(request):
             )
             newbook.save()
             messages.success(request, f'{newbook.name} Book Added Successfully')
-            return HttpResponseRedirect('{% url "home" %}')
+            return redirect("home")
 
     else:
         form = addbook()
