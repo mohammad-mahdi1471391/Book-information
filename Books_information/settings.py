@@ -11,9 +11,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-*h+&y2iurwho_o+f2aa!t&4!n!b0va_hv0)!v&!gs##-=w2%%n'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['jhdfisdoklf.pythonanywhere.com']
 
 
 # Application definition
@@ -103,16 +103,17 @@ USE_TZ = True
 
 
 # Media files
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
 
-
-# Static
-STATIC_URL = 'static/'
+# Static files
+STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
     BASE_DIR / 'static',
 ]
+
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 
 
@@ -122,4 +123,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 # Login URLs
-LOGIN_URL = 'login'
+LOGIN_URL = 'users-login'
+
