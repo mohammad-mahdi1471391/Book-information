@@ -4,7 +4,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Home</title>
     <style>
         body{
@@ -19,9 +20,6 @@
             height: 130px;
             margin: 0 ;
         }
-
-
-
 
         .grid {
             display: grid;
@@ -67,7 +65,7 @@
             transform: translateY(-2px);
         }
 
-        .button {
+        .button1 {
             border-radius: 3px ;
             background-color: cadetblue ;
             width: 90px ;
@@ -82,7 +80,7 @@
             margin-top: -75px;
             transition: 0.25s;
         }
-        .button:hover {
+        .button1:hover {
             background-color: #34ff00;
             color: black;
             transform: translateY(-2px);
@@ -147,8 +145,84 @@
             font-size: 20px;
             text-align: start;
         }
+        .input1 {
+            display: grid;
+            width:500px;
+            height: 45px;
+            margin-left: 100px;
+        }
 
+        .img1{
+            display: flex;
+            width:150px;
+            height:100px;
+        }
 
+        @media screen and (max-width: 768px) {
+            .button1 {
+                height: 25px;
+                display: flex;
+                margin-left: 330px;
+                margin-top: -100px;
+            }
+
+            .img1 {
+                height: 70px;
+
+            }
+
+            .input1 {
+                height: 30px;
+                width: 40px;
+                margin-right: 100px;
+                margin-top: 70px;
+
+            }
+
+            button {
+                height: 38px;
+                width: 45px;
+            }
+            .search-button {
+                display: grid;
+                margin-top: 69px;
+                margin-left: 90px;
+            }
+            .grid {
+                grid-template-columns: repeat(2, 1fr);
+                margin-left: 90px;
+            }
+            .search-background {
+                height: 120px;
+            }
+            .genres{
+                padding: 3px;
+                gap: 5px;
+            }
+            h1 {
+                font-size: 19px;
+                display: flex;
+                justify-content: start;
+                align-items: start;
+            }
+
+            .card {
+                width: 150px;
+                height: 230px;
+                img {
+                    width: 60%;
+                    height: 80%;
+                }
+                h4 {
+                    margin-top: 2px;
+                    font-size: 13px;
+                }
+                p {
+                    font-size: 15px;
+                }
+            }
+
+        }
     </style>
 
 
@@ -164,24 +238,30 @@
     {% endfor%}
 {%endif%}
 <div class="search-background">
-    <img src="{% static 'picture\logo.png' %}" alt="logo" width="300" height="100">
+    <div class="img1">
+        <img src="{% static 'picture\logo.png' %}" alt="logo" >
+    </div>
     <div class="search">
         <form method="GET" action="{% url 'search_books' %}" onsubmit="return this.q.value.trim() !== ''">
             <div class="grid">
-                <input
-                        style="width: 500px; height: 50px; border-radius: 10px; font-family: 'Bauhaus 93'; font-size: 18px;"
-                        type="search"
-                        name="q"
-                        placeholder="Search Books, Author,Keyword "
-                        value="{{ request.GET.q|default:'' }}"
-                    >
-                <button type="submit" style="border-radius: 10px ; background-color: #1778FF"><img src="{% static 'picture/search-icon.png' %}" width= 30px height= 30px></button>
+                <div class="input1">
+                    <input
+                            style="border-radius: 10px;font-family: 'Bauhaus 93';font-size: 20px;"
+                            type="search"
+                            name="q"
+                            placeholder="Search Books, Author,Keyword "
+                            value="{{ request.GET.q|default:'' }}"
+                        >
+                </div>
+                <div class="search-button">
+                    <button type="submit" style="border-radius: 8px ; background-color: #1778FF"><img src="{% static 'picture/search-icon.png' %}" width= 30px height= 33px></button>
+                </div>
             </div>
         </form>
     </div>
     {% if not user.is_authenticated %}
         <a href="{% url 'users-login' %}" style="text-decoration: none; color: black;">
-            <div class="button">
+            <div class="button1">
                 <div class="grid2">
                     <img src="{% static 'picture/profile.png' %}" width= 30px height= 30px>
                     Sign in
@@ -191,12 +271,10 @@
 
     {% else %}
         <a href="{% url 'add book' %}" style="text-decoration: none; color: black;">
-            <div class="button">
+            <div class="button1">
                     Add Book
             </div>
         </a>
-
-
     {%endif%}
 </div>
 
@@ -208,7 +286,11 @@
     {% endfor %}
 </div>
 
-<h1 style="font-family: 'Bauhaus 93' ; margin-top: 70px ; margin-left: 10px">Suggestions for you :</h1>
+
+
+
+
+<h1 style="font-family: 'Bauhaus 93' ; margin-top: 30px ; margin-left: 10px">Suggestions for you :</h1>
 <div class="card_situation">
     {% for book in books %}
             <a href="{% url 'book detail' category=book.category_name name=book.name %}" style="text-decoration: none; color: black;">

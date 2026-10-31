@@ -32,7 +32,6 @@
 
     <form method="POST">
         {% csrf_token %}
-        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
         <div style="margin-bottom: 15px;">
             <label for="{{ form.username.id_for_label }}">
                 Username:

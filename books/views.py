@@ -47,11 +47,6 @@ class Booklistview(APIView):
 
 class Bookdetail(APIView):
     def get(self , request ,category, name):
-        if not request.user.is_authenticated:
-            return redirect_to_login(
-                request.get_full_path(),
-                login_url='users-login'
-            )
         try:
             book = Book.objects.get(Categoris__name = category ,name = name)
         except Book.DoesNotExist:

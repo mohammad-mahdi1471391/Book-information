@@ -40,4 +40,3 @@ class RegisterView(View):
 class CustomLoginView(LoginView):
     form_class = LoginForm
     template_name = 'users/login.html'
-    next_page = reverse_lazy('home')
