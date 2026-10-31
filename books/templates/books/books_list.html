@@ -66,7 +66,49 @@
             height: 130px;
             margin: 0 ;
         }
-        .button {
+
+        .grid3 {
+            display: grid;
+            grid-template-columns: repeat(2, 0.8fr);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .genres {
+            font-family: 'Bauhaus 93';
+            display: flex;
+            flex-wrap: nowrap;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 25px;
+            background-color: #f4f6f9;
+            overflow-x: auto;
+            overflow-y: hidden;
+            white-space: nowrap;
+            scrollbar-width: none;
+        }
+
+        .genre-link {
+            display: inline-block;
+            padding: 10px 16px;
+            color: #304b70;
+            text-decoration: none;
+            font-size: 17px;
+            border-radius: 8px;
+            transition: 0.25s ;
+        }
+
+        .genre-link:hover {
+            background-color: #304b70;
+            color: white;
+            transform: translateY(-2px);
+        }
+        .img1{
+            display: flex;
+            width:150px;
+            height:100px;
+        }
+        .button1 {
             border-radius: 3px ;
             background-color: cadetblue ;
             width: 90px ;
@@ -77,19 +119,21 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-left: 93.8%;
+            margin-left: 93%;
             margin-top: -75px;
             transition: 0.25s;
         }
-        .button:hover {
+        .button1:hover {
             background-color: #34ff00;
             color: black;
             transform: translateY(-2px);
         }
-
-
-
-
+        .input1 {
+            display: grid;
+            width:500px;
+            height: 45px;
+            margin-left: 100px;
+        }
 
     </style>
 
@@ -99,37 +143,50 @@
 </head>
 <body>
 <div class="search-background">
-    <img src="{% static 'picture/logo.png' %}" alt="logo" width="300" height="100">
+    <div class="img1">
+        <img src="{% static 'picture\logo.png' %}" alt="logo" >
+    </div>
     <div class="search">
-        <form method="GET" action="{% url 'search_books' %}" onsubmit="return this.q.value.trim() !== '';">
+        <form method="GET" action="{% url 'search_books' %}" onsubmit="return this.q.value.trim() !== ''">
             <div class="grid">
-                <input
-                        style="width: 500px; height: 50px; border-radius: 10px; font-family: 'Bauhaus 93' ; font-size: 18px;"
-                        type="search"
-                        name="q"
-                        placeholder="Search Books, Author,Keyword "
-                        value="{{ request.GET.q|default:'' }}"
-                    >
-                <button type="submit" style="border-radius: 10px ; background-color: #1778FF"><img src="{% static 'picture/search-icon.png' %}" width= 30px height= 30px></button>
+                <div class="input1">
+                    <input
+                            style="border-radius: 10px;font-family: 'Bauhaus 93';font-size: 20px;"
+                            type="search"
+                            name="q"
+                            placeholder="Search Books, Author,Keyword "
+                            value="{{ request.GET.q|default:'' }}"
+                        >
+                </div>
+                    <button type="submit" style="border-radius: 8px ; background-color: #1778FF"><img src="{% static 'picture/search-icon.png' %}" width= 30px height= 33px></button>
             </div>
         </form>
     </div>
     {% if not user.is_authenticated %}
-        <div class="button">
-            <a href="{% url 'users-login' %}" style="text-decoration: none; color: black;">
-                <div class="grid2">
+        <a href="{% url 'users-login' %}" style="text-decoration: none; color: black;">
+            <div class="button1">
+                <div class="grid3">
                     <img src="{% static 'picture/profile.png' %}" width= 30px height= 30px>
                     Sign in
                 </div>
-            </a>
-        </div>
+            </div>
+        </a>
+
     {% else %}
-        <div class="button">
-            <a href="{% url 'add book' %}" style="text-decoration: none; color: black;">
-                Add Book
-            </a>
-        </div>
+        <a href="{% url 'add book' %}" style="text-decoration: none; color: black;">
+            <div class="button1">
+                    Add Book
+            </div>
+        </a>
     {%endif%}
+</div>
+
+<div class="genres">
+    {% for genre in categories %}
+        <a href="{% url 'books list' category=genre.name %}" class="genre-link">
+            {{ genre.name }}
+        </a>
+    {% endfor %}
 </div>
 
 <br>

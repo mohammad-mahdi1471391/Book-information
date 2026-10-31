@@ -36,9 +36,11 @@ class home(APIView):
 
 class Booklistview(APIView):
     def get(self , request , category):
+        category2 = Category.objects.all()
+        serializer2 = CategorySerializer(category2, many=True)
         book = Book.objects.filter(Categoris__name=category)
         serializer = BookSerializer(book, many=True )
-        return render (request , 'books/books_list.html' , {'books':serializer.data})
+        return render (request , 'books/books_list.html' , {'books':serializer.data , 'categories':serializer2.data})
 
 
 
