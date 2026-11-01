@@ -162,59 +162,68 @@
         }
 
         @media screen and (max-width: 768px) {
+
             .button1 {
                 height: 25px;
                 display: flex;
                 margin-left: 70%;
-                margin-top: -105px;
+                margin-top: -28%;
             }
 
             .img1 {
                 height: 50%;
                 width: 70%;
+                margin-left: 3%;
+            }
 
-            }
             .grid {
-                display: grid;
-                grid-template-columns: repeat(2, 1fr);
+                display: flex;
+                justify-content: end;
+                align-items: center;
+                margin-top: 25%;
+                margin-right: 10%;
             }
+
             .input1 {
-                height: 30px;
-                width: 100px;
-                margin-left: -55px;
-                margin-top: 50px;
-
+                width :260px;
+                height: 35px;
+                margin-left: 0;
             }
 
-            button {
-                height: 36px;
-                width: 43px;
-                margin-right: -200px;
+            .grid input {
+                width: 100%;
+                font-size: 13px !important;
             }
-            .search-button {
-                display: grid;
-                margin-top: 55px;
-                margin-left: 90px;
-                button {
-                    img {
-                        height: 30px;
-                    }
-                }
-            }
-            .grid {
-                display: grid;
-                grid-template-columns: repeat(2, 1fr);
+
+            .grid button {
+                width: 35px;
+                height: 35px;
+                display: flex;
                 justify-content: center;
                 align-items: center;
+                margin-top: 1%;
             }
+
+            .grid button > img {
+                width: 25px;
+                height: 25px;
+            }
+
+            .search {
+                margin-top: -68px;
+                margin-right: 10px;
+            }
+
             .search-background {
                 height: 120px;
                 width: 100%;
             }
-            .genres{
+
+            .genres {
                 padding: 3px;
                 gap: 5px;
             }
+
             h1 {
                 font-size: 19px;
                 display: flex;
@@ -225,19 +234,21 @@
             .card {
                 width: 150px;
                 height: 230px;
-                img {
-                    width: 60%;
-                    height: 80%;
-                }
-                h4 {
-                    margin-top: 2px;
-                    font-size: 13px;
-                }
-                p {
-                    font-size: 15px;
-                }
             }
 
+            .card img {
+                width: 60%;
+                height: 80%;
+            }
+
+            .card h4 {
+                margin-top: 2px;
+                font-size: 13px;
+            }
+
+            .card p {
+                font-size: 15px;
+            }
         }
     </style>
 
@@ -269,9 +280,7 @@
                             value="{{ request.GET.q|default:'' }}"
                         >
                 </div>
-                <div class="search-button">
                     <button type="submit" style="border-radius: 8px ; background-color: #1778FF"><img src="{% static 'picture/search-icon.png' %}" width= 30px height= 36px></button>
-                </div>
             </div>
         </form>
     </div>
