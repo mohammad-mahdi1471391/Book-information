@@ -1,10 +1,7 @@
-from django.contrib.auth.views import redirect_to_login
-from django.http import HttpResponseRedirect
 from django.shortcuts import render , redirect
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-from rest_framework.permissions import IsAuthenticated
 from django.contrib import messages
 from django.db.models import Q
 import random
@@ -40,7 +37,7 @@ class Booklistview(APIView):
         serializer2 = CategorySerializer(category2, many=True)
         book = Book.objects.filter(Categoris__name=category)
         serializer = BookSerializer(book, many=True )
-        return render (request , 'books/books_list.html' , {'books':serializer.data , 'categories':serializer2.data})
+        return render (request , 'books/books_list.html' , {'books':serializer.data , 'categories':serializer2.data , 'genre' : category})
 
 
 

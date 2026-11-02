@@ -90,15 +90,6 @@
         }
 
 
-        .grid2 {
-            display: grid;
-            grid-template-columns: repeat(2, 0.8fr);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
-        }
-
 
          .card {
              width: 250px;
@@ -233,7 +224,7 @@
 
             .card {
                 width: 150px;
-                height: 230px;
+                height: 100%;
             }
 
             .card img {
@@ -276,7 +267,7 @@
                             style="border-radius: 10px;font-family: 'Bauhaus 93';font-size: 20px;"
                             type="search"
                             name="q"
-                            placeholder="Search Books, Author,Keyword "
+                            placeholder="Search Books, Author, Keyword "
                             value="{{ request.GET.q|default:'' }}"
                         >
                 </div>
@@ -287,10 +278,8 @@
     {% if not user.is_authenticated %}
         <a href="{% url 'users-login' %}" style="text-decoration: none; color: black;">
             <div class="button1">
-                <div class="grid2">
                     <img src="{% static 'picture/profile.png' %}" width= 30px height= 30px>
                     Sign in
-                </div>
             </div>
         </a>
 
@@ -310,9 +299,6 @@
         </a>
     {% endfor %}
 </div>
-
-
-
 
 
 <h1 style="font-family: 'Bauhaus 93' ; margin-top: 30px ; margin-left: 10px">Suggestions for you :</h1>
