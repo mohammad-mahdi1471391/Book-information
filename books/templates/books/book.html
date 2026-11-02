@@ -78,7 +78,73 @@
             border-radius: 15px;
         }
 
+        @media  screen and  (max-width: 960px)  {
+            body {
+                margin: 0;
+                padding: 0;
+                overflow-x: hidden;
+            }
+            .image-container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
 
+            }
+            .image-container img{
+                width: 75%;
+                height: 90%;
+
+
+            }
+            .background {
+                width: 100%;
+                height: 80%;
+                margin: 0;
+                padding: 0;
+                border-radius: 0;
+            }
+
+            .grid {
+                display: grid;
+                grid-template-columns: repeat(1, 1fr);
+            }
+
+            .grid h1 {
+                font-size: 20px;
+                margin-top: 10px !important;
+                width: 100%;
+                white-space: normal !important;
+                padding: 5px;
+            }
+
+            .text-box {
+                padding: 10px;
+                width: 95%;
+            }
+
+            p {
+                padding: 2px;
+                gap : 5px
+            }
+
+            .card_situation {
+                padding: 5px;
+            }
+
+            .card {
+                width: 150px;
+                height: 90%;
+            }
+
+            .card img {
+                width: 70%;
+                height: 80%;
+            }
+
+            .card p {
+                font-size: 15px;
+            }
+        }
 
 
     </style>
@@ -91,11 +157,11 @@
             <img src="{{book.img}}" alt="AVATAR" width="350" height="400" style="border-radius: 10px;margin-top: -10px;">
         </div>
         <h1 style="font-family: 'Rockwell Nova Light' ; white-space: nowrap;margin-top: 120px">
-            Book name : <b>{{book.name}}</b><br>
+            <i>Book name</i>: <b>{{book.name}}</b><br>
             <br>
-            Author : <b>{{book.author}}</b><br>
+            <i>Author</i> : <b>{{book.author}}</b><br>
             <br>
-            Written : <b>{{book.created}}</b><br>
+            <i>Written</i> : <b>{{book.created}}</b><br>
         </h1>
     </div>
 </div>
