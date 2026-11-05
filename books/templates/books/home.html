@@ -1,50 +1,49 @@
 <!DOCTYPE html>
 {% load static %}
 
-<html lang="en">
+<html lang="fa" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="{% static 'picture/favicon.ico' %}">
+
 
     <title>Home</title>
     <style>
-        body{
+            body{
             background-color: white;
             margin: 0;
             padding: 0;
         }
 
         .search-background {
-            background-color: #304b70;
+            background-color: #1a535c;
             width: 100%;
             height: 130px;
             margin: 0 ;
         }
 
         .grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
             display: flex;
+            align-items: center;
             margin: 20px;
-            margin-right: 60px;
         }
 
         .search {
             display: flex;
-            justify-content:end;
-            align-items: end;
+            justify-content:center;
+            align-items: center;
             margin-top: -68px;
-            margin-right: 80px;
+            margin-right: 130px;
         }
 
 
         .genres {
-            font-family: 'Bauhaus 93';
             display: flex;
             flex-wrap: nowrap;
             align-items: center;
             gap: 10px;
-            padding: 15px 25px;
+            padding: 10px;
             background-color: #f4f6f9;
             overflow-x: auto;
             overflow-y: hidden;
@@ -70,16 +69,15 @@
 
         .button1 {
             border-radius: 3px ;
-            background-color: cadetblue ;
+            background-color: #f0f3bd ;
             width: 90px ;
             height: 40px;
             white-space: nowrap;
             font-family: 'Bauhaus 93';
-            margin-right: 10px ;
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-left: 93%;
+            margin-right: 93%;
             margin-top: -110px;
             transition: 0.25s;
         }
@@ -143,7 +141,6 @@
             display: grid;
             width:500px;
             height: 45px;
-            margin-left: 100px;
         }
 
         .img1{
@@ -152,13 +149,18 @@
             height:100px;
         }
 
-        @media screen and (max-width: 960px)  {
+        @media screen and (max-width: 450px)  {
 
             .button1 {
                 height: 25px;
-                display: flex;
-                margin-left: 70%;
-                margin-bottom: 2%;;
+                width: 70px;
+                margin-right: 80%;
+                margin-top: -160px;
+            }
+
+            .button1 img {
+                width: 20px;
+                height: 20px;
             }
 
             .img1 {
@@ -169,20 +171,27 @@
 
             .grid {
                 display: flex;
-                justify-content: end;
+                justify-content: center;
                 align-items: center;
-                margin-top: 20%;
+                margin: 70px ;
+                margin-top: 80px;
             }
 
             .input1 {
-                width :260px;
+                width: 190px;
                 height: 35px;
-                margin-left: 0;
             }
 
             .grid input {
                 width: 100%;
+                height: 100%;
                 font-size: 13px !important;
+            }
+
+            .search {
+                justify-content: center;
+                margin-top: -68px;
+                margin-right: 0;
             }
 
             .grid button {
@@ -208,6 +217,7 @@
                 height: 120px;
                 width: 100%;
                 margin: 0;
+                padding: 0;
             }
 
             .genres {
@@ -241,6 +251,109 @@
                 font-size: 15px;
             }
         }
+            @media screen and (min-width: 450px) and (max-width: 960px)  {
+                .button1 {
+                    height: 25px;
+                    width: 70px;
+                    margin-right: 90%;
+                    margin-top: -100px;
+                    font-size: 15px;
+                }
+
+                .button1 img {
+                    width: 20px;
+                    height: 20px;
+                }
+
+                .img1 {
+                    height: 50%;
+                    width: 70%;
+                    margin-left: 3%;
+                }
+
+                .grid {
+                    display: flex;
+                    justify-content: start;
+                    align-items: start;
+                    margin-top: 70px;
+                    margin-left: 1px;
+                }
+
+                .input1 {
+                    width: 300px;
+                    height: 35px;
+                }
+
+                .grid input {
+                    width: 100%;
+                    height: 100%;
+                    font-size: 13px !important;
+                }
+
+                .search {
+                    justify-content: center;
+                    margin-top: -68px;
+                    margin-right: 0;
+                }
+
+                .grid button {
+                    width: 35px;
+                    height: 35px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    margin-top: 1px;
+                }
+
+                .grid button > img {
+                    width: 25px;
+                    height: 25px;
+                }
+
+                .search {
+                    margin-top: -68px;
+                    margin-right: 10px;
+                }
+
+                .search-background {
+                    height: 120px;
+                    width: 100%;
+                    margin: 0;
+                    padding: 0;
+                }
+
+                .genres {
+                    padding: 3px;
+                    gap: 5px;
+                }
+
+                h1 {
+                    font-size: 19px;
+                    display: flex;
+                    justify-content: start;
+                    align-items: start;
+                }
+
+                .card {
+                    width: 150px;
+                    height: 100%;
+                }
+
+                .card img {
+                    width: 60%;
+                    height: 80%;
+                }
+
+                .card h4 {
+                    margin-top: 2px;
+                    font-size: 13px;
+                }
+
+                .card p {
+                    font-size: 15px;
+                }
+
+            }
     </style>
 
 
@@ -257,36 +370,36 @@
 {%endif%}
 <div class="search-background">
     <div class="img1">
-        <img src="{% static 'picture\logo.png' %}" alt="logo" >
+        <img src="{% static 'picture\logo2.png' %}" alt="logo" >
     </div>
     <div class="search">
         <form method="GET" action="{% url 'search_books' %}" onsubmit="return this.q.value.trim() !== ''">
             <div class="grid">
                 <div class="input1">
                     <input
-                            style="border-radius: 10px;font-family: 'Bauhaus 93';font-size: 20px;"
+                            style="border-radius: 10px;font-size: 20px;"
                             type="search"
                             name="q"
-                            placeholder="Search Books, Author, Keyword "
+                            placeholder="اسم کتاب, نویسنده, کلیدواژه"
                             value="{{ request.GET.q|default:'' }}"
                         >
                 </div>
-                    <button type="submit" style="border-radius: 8px ; background-color: #1778FF"><img src="{% static 'picture/search-icon.png' %}" width= 30px height= 36px></button>
+                    <button type="submit" style="border-radius: 8px ; background-color: #02c39a"><img src="{% static 'picture/search2.png' %}" width= 30px height= 34px></button>
             </div>
         </form>
     </div>
     {% if not user.is_authenticated %}
         <a href="{% url 'users-login' %}" style="text-decoration: none; color: black;">
             <div class="button1">
-                    <img src="{% static 'picture/profile.png' %}" width= 30px height= 30px>
-                    Sign in
+                    <img src="{% static 'picture/login.png' %}" width= 30px height= 30px style="margin-left: 10px">
+                    ورود
             </div>
         </a>
 
     {% else %}
         <a href="{% url 'add book' %}" style="text-decoration: none; color: black;">
             <div class="button1">
-                    Add Book
+                    افزودن کتاب
             </div>
         </a>
     {%endif%}
@@ -301,7 +414,7 @@
 </div>
 
 
-<h1 style="font-family: 'Bauhaus 93' ; margin-top: 30px ; margin-left: 10px">Suggestions for you :</h1>
+<h1 style="font-family: 'Bauhaus 93' ; margin-top: 30px ; margin-right: 10px">کتاب‌های پیشنهادی :</h1>
 <div class="card_situation">
     {% for book in books %}
             <a href="{% url 'book detail' category=book.category_name name=book.name %}" style="text-decoration: none; color: black;">
