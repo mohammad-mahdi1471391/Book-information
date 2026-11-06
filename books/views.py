@@ -1,4 +1,4 @@
-from django.shortcuts import render , redirect
+from django.shortcuts import render , redirect , get_object_or_404
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
@@ -34,10 +34,16 @@ class home(APIView):
 class Booklistview(APIView):
     def get(self , request , category):
         category2 = Category.objects.all()
-        serializer2 = CategorySerializer(category2, many=True)
+        category = get_object_or_404(category2, name = category)
         book = Book.objects.filter(Categoris__name=category)
-        serializer = BookSerializer(book, many=True )
-        return render (request , 'books/books_list.html' , {'books':serializer.data , 'categories':serializer2.data , 'genre' : category})
+        serializer = BookSerializer(book, many=True)
+        serializer2 = CategorySerializer(category2, many=True)
+        context = {
+            'books': serializer.data,
+            'book2': serializer2.data,
+            'genre': category,
+        }
+        return render (request , 'books/books_list.html' , context)
 
 
 
@@ -54,7 +60,7 @@ class Bookdetail(APIView):
             return Response(status=status.HTTP_408_REQUEST_TIMEOUT)
         serializer = BookSerializer(book)
         books =list(Book.objects.exclude(pk=book.pk))
-        books_random = random.sample(books , 10)
+        books_random = random.sample(books, min(10, len(books)))
         serializer2 = BookSerializer(books_random, many=True )
         context = {
             'book': serializer.data,

@@ -379,7 +379,7 @@
 {% if books %}
 <div class="card_situation">
         {% for book in books %}
-            <a href='/Books/{{book.Categoris.name}}/{{book.name}}/' style="text-decoration: none; color: black;" >
+            <a href="{% url 'book detail' category=book.category_name name=book.name %}" style="text-decoration: none; color: black;" >
                 <div class="card">
                     {% if book.img %}
                         <div class="image-container">
