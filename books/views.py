@@ -12,7 +12,8 @@ from .srializers import CategorySerializer , BookSerializer
 from .forms import addbook
 
 # Create your views here.
-
+def custom_404(request, exception):
+    return render(request, '404.html', status=404)
 
 class home(APIView):
     def get(self, request):
