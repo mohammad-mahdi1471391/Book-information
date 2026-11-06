@@ -40,8 +40,8 @@ class Booklistview(APIView):
         serializer2 = CategorySerializer(category2, many=True)
         context = {
             'books': serializer.data,
-            'book2': serializer2.data,
-            'genre': category,
+            'categories': serializer2.data,
+            'category': category,
         }
         return render (request , 'books/books_list.html' , context)
 
