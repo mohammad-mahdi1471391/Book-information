@@ -90,7 +90,7 @@ def addBook(request):
                 created = data.get('created')
             )
             newbook.save()
-            messages.success(request, f'{newbook.name} Book Added Successfully')
+            messages.success(request, (f'کتاب  {newbook.name} با موفقیت اضافه شد'))
             return redirect("home")
 
     else:

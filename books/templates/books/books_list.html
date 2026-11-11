@@ -108,6 +108,7 @@
             margin-right: 93%;
             margin-top: -110px;
             transition: 0.25s;
+            text-decoration: none;
         }
         .button1:hover {
             background-color: #34ff00;
@@ -372,20 +373,19 @@
         </form>
     </div>
     {% if not user.is_authenticated %}
-        <a href="{% url 'users-login' %}" style="text-decoration: none; color: black;">
-            <div class="button1">
-                    <img src="{% static 'picture/login.png' %}" width= 30px height= 30px style="margin-left: 10px">
-                    ورود
-            </div>
+
+        <a href="{% url 'users-login' %}" class="button1">
+            <img src="{% static 'picture/login.png' %}" width="30px" height="30px" style="margin-left: 10px">
+            ورود
         </a>
 
     {% else %}
-        <a href="{% url 'add book' %}" style="text-decoration: none; color: black;">
-            <div class="button1">
-                    افزودن کتاب
-            </div>
+
+        <a href="{% url 'add book' %}" class="button1">
+            افزودن کتاب
         </a>
-    {%endif%}
+
+    {% endif %}
 </div>
 <div class="genres">
     {% for genre in categories %}

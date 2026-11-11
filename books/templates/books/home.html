@@ -7,10 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="{% static 'picture/favicon.ico' %}">
 
-
     <title>Home</title>
+
     <style>
-            body{
+        body {
             background-color: white;
             margin: 0;
             padding: 0;
@@ -20,7 +20,7 @@
             background-color: #1a535c;
             width: 100%;
             height: 130px;
-            margin: 0 ;
+            margin: 0;
         }
 
         .grid {
@@ -31,12 +31,11 @@
 
         .search {
             display: flex;
-            justify-content:center;
+            justify-content: center;
             align-items: center;
             margin-top: -68px;
             margin-right: 130px;
         }
-
 
         .genres {
             display: flex;
@@ -58,7 +57,7 @@
             text-decoration: none;
             font-size: 17px;
             border-radius: 8px;
-            transition: 0.25s ;
+            transition: 0.25s;
         }
 
         .genre-link:hover {
@@ -68,9 +67,9 @@
         }
 
         .button1 {
-            border-radius: 3px ;
-            background-color: #f0f3bd ;
-            width: 90px ;
+            border-radius: 3px;
+            background-color: #f0f3bd;
+            width: 90px;
             height: 40px;
             white-space: nowrap;
             font-family: 'Bauhaus 93';
@@ -80,26 +79,27 @@
             margin-right: 93%;
             margin-top: -110px;
             transition: 0.25s;
+            text-decoration: none;
+            color: black;
         }
+
         .button1:hover {
             background-color: #34ff00;
             color: black;
             transform: translateY(-2px);
         }
 
-
-
-         .card {
-             width: 250px;
-             height: 340px;
-             background-color: #c8d7d2;
-             border-radius: 10px;
-             transition: 0.25s ;
-             padding: 5px;
-         }
+        .card {
+            width: 250px;
+            height: 340px;
+            background-color: #c8d7d2;
+            border-radius: 10px;
+            transition: 0.25s;
+            padding: 5px;
+        }
 
         .card_situation {
-            display: flex ;
+            display: flex;
             justify-content: center;
             align-items: center;
             flex-wrap: wrap;
@@ -109,14 +109,12 @@
             gap: 25px;
             padding: 30px;
             margin-top: 70px;
-
         }
 
         .card:hover {
             transform: translateY(-8px);
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
         }
-
 
         .img_set {
             display: flex;
@@ -129,7 +127,7 @@
             display: flex;
             justify-content: start;
             align-items: start;
-            background-color: mediumseagreen;
+            background-color: #006B1B;
             width: 97.36%;
             height: 50px;
             margin: 0;
@@ -137,19 +135,20 @@
             font-size: 20px;
             text-align: start;
         }
+
         .input1 {
             display: grid;
-            width:500px;
+            width: 500px;
             height: 45px;
         }
 
-        .img1{
+        .img1 {
             display: flex;
-            width:150px;
-            height:100px;
+            width: 150px;
+            height: 100px;
         }
 
-        @media screen and (max-width: 450px)  {
+        @media screen and (max-width: 450px) {
 
             .button1 {
                 height: 25px;
@@ -173,7 +172,7 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                margin: 70px ;
+                margin: 70px;
                 margin-top: 80px;
             }
 
@@ -233,6 +232,114 @@
             }
 
             .card {
+                width: 130px;
+                height: 100%;
+            }
+
+            .card img {
+                width: 60%;
+                height: 100%;
+            }
+
+            .card h4 {
+                margin-top: 2px;
+                font-size: 13px;
+            }
+
+            .card p {
+                font-size: 15px;
+            }
+            .messages {
+                display: flex;
+                width: auto;
+            }
+        }
+
+        @media screen and (min-width: 450px) and (max-width: 960px) {
+
+            .button1 {
+                height: 25px;
+                width: 70px;
+                margin-right: 90%;
+                margin-top: -100px;
+                font-size: 15px;
+            }
+
+            .button1 img {
+                width: 20px;
+                height: 20px;
+            }
+
+            .img1 {
+                height: 50%;
+                width: 70%;
+                margin-left: 3%;
+            }
+
+            .grid {
+                display: flex;
+                justify-content: start;
+                align-items: start;
+                margin-top: 70px;
+                margin-left: 1px;
+            }
+
+            .input1 {
+                width: 300px;
+                height: 35px;
+            }
+
+            .grid input {
+                width: 100%;
+                height: 100%;
+                font-size: 13px !important;
+            }
+
+            .search {
+                justify-content: center;
+                margin-top: -68px;
+                margin-right: 0;
+            }
+
+            .grid button {
+                width: 35px;
+                height: 35px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-top: 1px;
+            }
+
+            .grid button > img {
+                width: 25px;
+                height: 25px;
+            }
+
+            .search {
+                margin-top: -68px;
+                margin-right: 10px;
+            }
+
+            .search-background {
+                height: 120px;
+                width: 100%;
+                margin: 0;
+                padding: 0;
+            }
+
+            .genres {
+                padding: 3px;
+                gap: 5px;
+            }
+
+            h1 {
+                font-size: 19px;
+                display: flex;
+                justify-content: start;
+                align-items: start;
+            }
+
+            .card {
                 width: 150px;
                 height: 100%;
             }
@@ -250,159 +357,63 @@
             .card p {
                 font-size: 15px;
             }
+
         }
-            @media screen and (min-width: 450px) and (max-width: 960px)  {
-                .button1 {
-                    height: 25px;
-                    width: 70px;
-                    margin-right: 90%;
-                    margin-top: -100px;
-                    font-size: 15px;
-                }
-
-                .button1 img {
-                    width: 20px;
-                    height: 20px;
-                }
-
-                .img1 {
-                    height: 50%;
-                    width: 70%;
-                    margin-left: 3%;
-                }
-
-                .grid {
-                    display: flex;
-                    justify-content: start;
-                    align-items: start;
-                    margin-top: 70px;
-                    margin-left: 1px;
-                }
-
-                .input1 {
-                    width: 300px;
-                    height: 35px;
-                }
-
-                .grid input {
-                    width: 100%;
-                    height: 100%;
-                    font-size: 13px !important;
-                }
-
-                .search {
-                    justify-content: center;
-                    margin-top: -68px;
-                    margin-right: 0;
-                }
-
-                .grid button {
-                    width: 35px;
-                    height: 35px;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    margin-top: 1px;
-                }
-
-                .grid button > img {
-                    width: 25px;
-                    height: 25px;
-                }
-
-                .search {
-                    margin-top: -68px;
-                    margin-right: 10px;
-                }
-
-                .search-background {
-                    height: 120px;
-                    width: 100%;
-                    margin: 0;
-                    padding: 0;
-                }
-
-                .genres {
-                    padding: 3px;
-                    gap: 5px;
-                }
-
-                h1 {
-                    font-size: 19px;
-                    display: flex;
-                    justify-content: start;
-                    align-items: start;
-                }
-
-                .card {
-                    width: 150px;
-                    height: 100%;
-                }
-
-                .card img {
-                    width: 60%;
-                    height: 80%;
-                }
-
-                .card h4 {
-                    margin-top: 2px;
-                    font-size: 13px;
-                }
-
-                .card p {
-                    font-size: 15px;
-                }
-
-            }
     </style>
-
-
 
 </head>
 
 <body>
-{% if messages%}
+
+{% if messages %}
     {% for message in messages %}
         <ul class="messages">
             <i style="margin-top: 10px">{{ message }}</i>
         </ul>
-    {% endfor%}
-{%endif%}
+    {% endfor %}
+{% endif %}
+
 <div class="search-background">
+
     <div class="img1">
-        <img src="{% static 'picture\logo2.png' %}" alt="logo" >
+        <img src="{% static 'picture\logo2.png' %}" alt="logo">
     </div>
+
     <div class="search">
         <form method="GET" action="{% url 'search_books' %}" onsubmit="return this.q.value.trim() !== ''">
             <div class="grid">
                 <div class="input1">
                     <input
-                            style="border-radius: 10px;font-size: 20px;"
-                            type="search"
-                            name="q"
-                            placeholder="اسم کتاب, نویسنده, کلیدواژه"
-                            value="{{ request.GET.q|default:'' }}"
-                        >
+                        style="border-radius: 10px;font-size: 20px;"
+                        type="search"
+                        name="q"
+                        placeholder="اسم کتاب, نویسنده, کلیدواژه"
+                        value="{{ request.GET.q|default:'' }}"
+                    >
                 </div>
-                    <button type="submit" style="border-radius: 8px ; background-color: #02c39a"><img src="{% static 'picture/search2.png' %}" width= 30px height= 34px></button>
+
+                <button type="submit" style="border-radius: 8px; background-color: #02c39a">
+                    <img src="{% static 'picture/search2.png' %}" width="30px" height="34px">
+                </button>
             </div>
         </form>
     </div>
+
     {% if not user.is_authenticated %}
-        <a href="{% url 'users-login' %}" style="text-decoration: none; color: black;">
-            <div class="button1">
-                    <img src="{% static 'picture/login.png' %}" width= 30px height= 30px style="margin-left: 10px">
-                    ورود
-            </div>
+
+        <a href="{% url 'users-login' %}" class="button1">
+            <img src="{% static 'picture/login.png' %}" width="30px" height="30px" style="margin-left: 10px">
+            ورود
         </a>
 
     {% else %}
-        <a href="{% url 'add book' %}" style="text-decoration: none; color: black;">
-            <div class="button1">
-                    افزودن کتاب
-            </div>
+
+        <a href="{% url 'add book' %}" class="button1">
+            افزودن کتاب
         </a>
-    {%endif%}
+
+    {% endif %}
+
 </div>
 
 <div class="genres">
@@ -413,30 +424,26 @@
     {% endfor %}
 </div>
 
+<h1 style="font-family: 'Bauhaus 93'; margin-top: 30px; margin-right: 10px">
+    کتاب‌های پیشنهادی :
+</h1>
 
-<h1 style="font-family: 'Bauhaus 93' ; margin-top: 30px ; margin-right: 10px">کتاب‌های پیشنهادی :</h1>
 <div class="card_situation">
+
     {% for book in books %}
-            <a href="{% url 'book detail' category=book.category_name name=book.name %}" style="text-decoration: none; color: black;">
-                <div class="card">
-                    <div class="img_set">
-                        <img src="{{book.img}}" alt="AVATAR" width="150" height="200" style="border-radius: 10px;justify-content: center;">
-                    </div>
-                    <h4>Genre : {{book.category_name}}</h4>
-                    <p><i>{{ book.name }}</i></p>
+        <a href="{% url 'book detail' category=book.category_name name=book.name %}" style="text-decoration: none; color: black;">
+            <div class="card">
+                <div class="img_set">
+                    <img src="{{ book.img }}" width="150" height="200" style="border-radius: 10px">
                 </div>
-            </a>
+                <h4>Genre : {{ book.category_name }}</h4>
+                <p><i>{{ book.name }}</i></p>
+
+            </div>
+        </a>
     {% endfor %}
+
 </div>
-
-
-
-
-
-
-
-</body>
-</html>
 
 </body>
 </html>

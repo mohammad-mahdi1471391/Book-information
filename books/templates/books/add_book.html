@@ -1,8 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+{% load static %}
+<html lang="fa" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="{% static 'picture/favicon.ico' %}">
 
     <title>Add New Book</title>
 
@@ -159,9 +161,9 @@
     <main class="form-card">
 
         <header class="form-header">
-            <h1>Add a New Book</h1>
+            <h1>افزودن کتاب جدید</h1>
             <p>
-                Please Add Valid Book
+                لطفا کتاب معتبر وارد کنید
             </p>
         </header>
 
@@ -173,13 +175,13 @@
 
             {{ form.as_p }}
                 <button type="submit" class="submit-btn">
-                    Save Book
+                    افزودن کتاب
                 </button>
 
         </form>
 
         <a href="{% url 'home'%}" class="back-link">
-            ← Back to Home
+             بازگشت به خانه ←
         </a>
 
     </main>
