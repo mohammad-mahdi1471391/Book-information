@@ -5,15 +5,12 @@ from rest_framework import status
 from django.contrib import messages
 from django.db.models import Q
 import random
-
-import users
 from .models import Category , Book
 from .srializers import CategorySerializer , BookSerializer
 from .forms import addbook
 
 # Create your views here.
-def custom_404(request, exception):
-    return render(request, '404.html', status=404)
+
 
 class home(APIView):
     def get(self, request):
@@ -30,12 +27,15 @@ class home(APIView):
 
         return render(request, 'books/home.html', context)
 
+def error_404(request, exception):
+    return render(request, '404.html', status=404)
+
 
 
 class Booklistview(APIView):
     def get(self , request , category):
         category2 = Category.objects.all()
-        category = get_object_or_404(category2, name = category)
+        category  = get_object_or_404(Category, name = category)
         book = Book.objects.filter(Categoris__name=category)
         serializer = BookSerializer(book, many=True)
         serializer2 = CategorySerializer(category2, many=True)
