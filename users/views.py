@@ -30,7 +30,7 @@ class RegisterView(View):
             form.save()
 
             username = form.cleaned_data.get('username')
-            messages.success(request, f'Account created for {username}')
+            messages.success(request, f'حساب کاربری {username} با موفقیت ساخته شد ')
 
             return redirect("users-login")
 
