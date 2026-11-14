@@ -144,8 +144,15 @@
 
         .img1 {
             display: flex;
+            position: relative;
             width: 150px;
             height: 100px;
+            animation-name: myAnimation;
+            animation-duration: 5s;
+        }
+        @keyframes myAnimation {
+            0% {left: 50px;opacity: 0;}
+            100% {left: 0;opacity: 1;}
         }
 
         @media screen and (max-width: 450px) {
